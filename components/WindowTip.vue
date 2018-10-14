@@ -2,17 +2,14 @@
   div.tip-container-customer(v-show='tipMsg')
     div.tip-content
       div.real-tip {{tipMsg}}
-      p(@click='confirm' class='confirm') 确认
+      p.confirm(@click='confirm') 确认
 </template>
 
 <script>
 import { mapState, mapMutations } from 'vuex'
 export default {
   computed: {
-    // ...mapState(['tipMsg'])
-    tipMsg () {
-      return this.$store.state.default.tipMsg
-    }
+    ...mapState(['tipMsg'])
   },
   methods: {
     ...mapMutations(['showTip']),
@@ -24,10 +21,10 @@ export default {
 </script>
 
 <style lang='stylus'>
-  .tip-container.customer {
+  .tip-container-customer {
+    z-index 10
     font-size: 0.9375rem;
     line-height: 2;
-    z-index: 10;
     position: fixed;
     left: 0;
     top: 0;
